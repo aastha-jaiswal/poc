@@ -57,6 +57,24 @@ public class BookDAO {
 
     }
 
+    public void updateBook(int id,double price) throws Exception
+    {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useSSL=false", "root", "root");
+        Statement stmt = conn.createStatement();
+        String sql = "UPDATE Book " +
+                "SET price = "+price+" WHERE id = "+id;
+        stmt.executeUpdate(sql);
+//        ResultSet rs = stmt.executeQuery(QUERY);
+//        while(rs.next()){
+//            //Display values
+//            System.out.print("ID: " + rs.getInt("id"));
+//            System.out.print(", Age: " + rs.getInt("age"));
+//            System.out.print(", First: " + rs.getString("first"));
+//            System.out.println(", Last: " + rs.getString("last"));
+//        }
+//        rs.close();
+    }
 
 }
 

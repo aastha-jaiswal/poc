@@ -15,11 +15,11 @@ public static void main(String args[] ){
        System.out.println("Select operation to be performed.");
        System.out.println("Press 1 for displaying the table details");
        System.out.println("Press 2 for inserting a value in a table");
-        System.out.println("Press 3 for deleting a value from a table");
+       System.out.println("Press 3 for deleting a value from a table");
+       System.out.println("Press 4 for updating a value from a table");
 
-       int choice=sc.nextInt();
 
-
+        int choice=sc.nextInt();
 
 
        switch(choice){
@@ -60,6 +60,18 @@ public static void main(String args[] ){
                int id=sc.nextInt();
                dao.deleteBook(id);
                System.out.println("item is deleted");
+               break;
+           }
+           case 4:{
+               BookDAO dao=new BookDAO();
+               System.out.println("Enter the id to be updated");
+               int id=sc.nextInt();
+               System.out.println("Enter the updated price");
+               double price =sc.nextDouble();
+               dao.updateBook(id,price);
+               System.out.println("price is updated");
+
+
            }
        }
     } catch (Exception e) {
